@@ -1,0 +1,12 @@
+clear; clc;
+a0=2; b0=1;
+n=10; p=sqrt(2*n^2); b=2*n*sqrt(p^2-n^2);
+Ln=10; sim('task_E_mod',20);
+figure('Color','w'); hold on;
+plot(x.time,x.data,'-','Color','black','LineWidth',1);
+nu=5; numer_filter;
+plot(xnsf.time,xnsf.data,':','Color','black','LineWidth',0.5);
+nu=100; numer_filter;
+plot(xnsf.time,xnsf.data,'--','Color','black','LineWidth',3);
+legend('without noise','nu=5','nu=100');
+FormatCharts('$$t,{\textrm s}$$','$$x(t)$$','');

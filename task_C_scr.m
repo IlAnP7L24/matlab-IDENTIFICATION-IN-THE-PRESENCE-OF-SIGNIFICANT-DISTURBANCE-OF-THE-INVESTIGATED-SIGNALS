@@ -1,0 +1,15 @@
+n=8; p=sqrt(1+2*n^2); b=2*n*sqrt(p^2-n^2);
+Ln=10; sim('task_C_mod');
+figure('Color','w');
+subplot(2,1,1); hold on;
+plot(x.time,x.data,'-','Color','black','LineWidth',2);
+plot(xn.time,xn.data,':','Color','black','LineWidth',2);
+plot(xf.time,xf.data,'--','Color','black','LineWidth',2);
+legend('without noise','with noise','filtered');
+FormatCharts('$$t,{\textrm s}$$','$$x(t)$$','');
+subplot(2,1,2); hold on;
+plot(dxdt.time,dxdt.data,'-','Color','black','LineWidth',2);
+plot(dxndt.time,dxndt.data,':','Color','black','LineWidth',2);
+plot(dxfdt.time,dxfdt.data,'--','Color','black','LineWidth',2);
+legend('without noise','with noise','filtered');
+FormatCharts('$$t,{\textrm s}$$','$$x(t)$$','');

@@ -1,0 +1,17 @@
+clear; clc;
+a0=2; b0=1;
+n=10; p=sqrt(2*n^2); b=2*n*sqrt(p^2-n^2);
+Ln=10; sim('task_D_mod');
+figure('Color','w');
+subplot(2,1,1); hold on;
+plot(x.time,x.data,'-','Color','black','LineWidth',1);
+plot(xn.time,xn.data,':','Color','black','LineWidth',1);
+plot(xnf.time,xnf.data,'--','Color','black','LineWidth',2);
+legend('without noise','with noise','filtered');
+FormatCharts('$$t,{\textrm s}$$','$$x(t)$$','');
+subplot(2,1,2); hold on;
+plot(dxdt.time,dxdt.data,'-','Color','black','LineWidth',1);
+plot(dxndt.time,dxndt.data,':','Color','black','LineWidth',1);
+plot(dxnfdt.time,dxnfdt.data,'--','Color','black','LineWidth',2);
+legend('without noise','with noise','filtered');
+FormatCharts('$$t,{\textrm s}$$','$$\frac{dx}{dt}(t)$$','');

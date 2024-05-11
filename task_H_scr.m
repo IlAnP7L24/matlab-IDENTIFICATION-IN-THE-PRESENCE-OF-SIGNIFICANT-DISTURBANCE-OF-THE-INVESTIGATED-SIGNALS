@@ -1,0 +1,17 @@
+clear; clc;
+Ln=10;
+figure('Color','w');
+nois=0; sim('task_H_mod');
+subplot(1,2,1); hold on;
+plot(x.time,x.data,'-','Color','black','LineWidth',0.5);
+subplot(1,2,2); hold on;
+plot(a.time,a.data,'-','Color','black','LineWidth',0.5);
+nois=1; sim('task_H_mod');
+subplot(1,2,1); hold on;
+plot(x.time,x.data,':','Color','black','LineWidth',1);
+legend('without noise','with noise');
+FormatCharts('$$t,{\textrm s}$$','$$x(t)$$','');
+subplot(1,2,2); hold on;
+plot(a.time,a.data,':','Color','black','LineWidth',1);
+legend('without noise','with noise');
+FormatCharts('$$t,{\textrm s}$$','$$a(t)$$','');
